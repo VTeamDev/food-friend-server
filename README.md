@@ -31,3 +31,4 @@ Server project for Food Friend app
 ## Note :pencil2:
 
 * Auth header will be alive for 30 days, after that, you have to login again.
+* If you changed the `PORT` within the file `.env`, you will need to modify the `graphdoc` session and `codegen` value to that new `PORT`
