@@ -1,5 +1,5 @@
 import { Connection, createConnection } from "typeorm";
-import { dbHost, dbName, dbPassword, dbPort, dbUsername, isProd } from "../config";
+import { dbHost, dbName, dbPassword, dbPort, dbRunMigration, dbUsername, isProd } from "../config";
 
 export const startConnection = async (): Promise<Connection> => {
 	const connection = await createConnection({
@@ -13,9 +13,9 @@ export const startConnection = async (): Promise<Connection> => {
 		subscribers: isProd ? [`${__dirname}/subscribers/*.js`] : [`${__dirname}/subscribers/*.ts`],
 		logging: false,
 		// TODO: Set to true to run the migration again
-		synchronize: true,
-		dropSchema: true,
-		migrationsRun: true,
+		synchronize: dbRunMigration,
+		dropSchema: dbRunMigration,
+		migrationsRun: dbRunMigration,
 	});
 	return connection;
 };

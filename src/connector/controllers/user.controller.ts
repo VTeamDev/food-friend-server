@@ -19,14 +19,34 @@ export class UserController {
 		try {
 			const errors: ValidationError[] = await validate(user, { skipMissingProperties: true });
 			if (errors.length > 0) {
-				// TODO: Handle errors here
-				// tslint:disable-next-line:no-console
-				console.log(errors);
-				throw new Error("Error");
+				throw new Error(`Invalid ${errors[0].property}`);
 			}
 
 			const savedUser = await this.userRepo.save(user);
 			return savedUser;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	public updateUser = async (userId: string, rawUser: User): Promise<User> => {
+		try {
+			const errors: ValidationError[] = await validate(rawUser, { skipMissingProperties: true });
+			if (errors.length > 0) {
+				throw new Error(`Invalid ${errors[0].property}`);
+			}
+
+			const userToUpdate = await this.userRepo.findOne(userId);
+
+			if (userToUpdate) {
+				userToUpdate.firstName = rawUser.firstName;
+				userToUpdate.lastName = rawUser.lastName;
+
+				const updatedUser = await this.userRepo.save(userToUpdate);
+				return updatedUser;
+			}
+
+			throw new Error("User not found");
 		} catch (error) {
 			throw new Error(error);
 		}

@@ -1,4 +1,4 @@
-import { login, register } from "./mutations/index";
+import { login, register, updateMe } from "./mutations/index";
 import { me } from "./queries/index";
 
 export const userResolvers = {
@@ -6,5 +6,6 @@ export const userResolvers = {
 	Mutation: {
 		login,
 		register,
+		updateMe,
 	},
 };

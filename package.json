@@ -14,12 +14,12 @@
 		"start": "cross-env NODE_ENV=production node build/index.js",
 		"dev": "cross-env NODE_ENV=development nodemon",
 		"build": "cross-env NODE_ENV=production tsc",
-		"clean": "rimraf build",
+		"clean": "rimraf build docs",
 		"type-check": "tslint --project tsconfig.json --config tslint.json 'src/**/*.ts'",
 		"precommit": "lint-staged",
 		"codegen":
 			"apollo-codegen introspect-schema http://localhost:8080/graphql --output schema.json",
-		"docgen": "graphdoc"
+		"docgen": "graphdoc --force"
 	},
 	"lint-staged": {
 		"src/**/*.ts": ["type-check", "git add"]

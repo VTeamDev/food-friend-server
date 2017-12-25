@@ -12,7 +12,8 @@ export const userTypes = `
 	}
 	type Mutation {
 		register(firstName: String!, lastName: String!, email: String!, password: String!): User! @auth(guest: true)
-		login(email: String!, password: String!): AuthResponse! @auth(guest: true)
+		login(email: String!, password: String!): AuthResponse! @auth(guest: true) @auth(guest: true)
+		updateMe(firstName: String!, lastName: String!): User! @auth
 	}
 	type AuthResponse {
 		token: String!
