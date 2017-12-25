@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "commonjs",
+		"sourceMap": true,
+		"lib": [
+			"esnext",
+			"es6"
+		],
+		"outDir": "build",
+		"rootDir": "src",
+		"importHelpers": true,
+		"noEmitOnError": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	}
+}
