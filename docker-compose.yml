@@ -1,0 +1,39 @@
+version: '3'
+services: 
+  app-dev: 
+    image: node:8.9-alpine
+    working_dir: /opt/app
+    command: sh run-dev.sh
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      VIRTUAL_HOST: vteam.dev
+      VIRTUAL_PORT: 3000
+      HTTPS_METHOD: noredirect # support both http and https
+    env_file:
+      - .env.example
+    ports:
+      - "3000"
+      - "8080"
+    depends_on:
+      - db-dev
+    links:
+      - db-dev:db
+    volumes:
+      - .:/opt/app
+    restart: unless-stopped
+    network_mode: bridge
+  db-dev:
+    image: postgres:9.6.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abc123@@
+      POSTGRES_DB: food-friend-dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-dev:/var/lib/postgresql/data
+    restart: unless-stopped
+    network_mode: bridge
+volumes:
+  db-dev:
