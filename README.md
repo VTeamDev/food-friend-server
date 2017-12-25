@@ -18,9 +18,10 @@ Server project for Food Friend app
 
 ## Documentation :blue_book:
 
+* Documentation now lives at [https://vteamdev.github.io/food-friend-server/index.html](https://vteamdev.github.io/food-friend-server/index.html) :fire:
 * Run the server with `yarn dev`
 * Run the command `docgen` to generate doc in folder `doc`
-* Open `doc/index.html` to view the documentation
+* Open `docs/index.html` to view the documentation
 
 ## Generate Schema file :fire:
 

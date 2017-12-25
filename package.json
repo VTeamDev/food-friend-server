@@ -26,7 +26,7 @@
 	},
 	"graphdoc": {
 		"endpoint": "http://localhost:8080/graphql",
-		"output": "./doc/schema"
+		"output": "./docs"
 	},
 	"dependencies": {
 		"apollo-link": "^1.0.7",
