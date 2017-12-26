@@ -5,7 +5,6 @@ services:
     working_dir: /opt/app
     command: sh run-dev.sh
     environment:
-      NODE_ENV: development
       PORT: 3000
       VIRTUAL_HOST: vteam.dev
       VIRTUAL_PORT: 3000

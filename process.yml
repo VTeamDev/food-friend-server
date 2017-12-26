@@ -1,0 +1,5 @@
+apps:
+  - script   : './build/index.js'
+    name     : 'food-friend-server'
+    exec_mode: 'cluster'
+    instances: 1
