@@ -19,7 +19,14 @@
 		"precommit": "lint-staged",
 		"codegen":
 			"apollo-codegen introspect-schema http://localhost:8080/graphql --output schema.json",
-		"docgen": "graphdoc --force"
+		"docgen": "graphdoc --force",
+		"schema:sync": "node tsnode-typeorm schema:sync",
+		"schema:drop": "node tsnode-typeorm schema:drop",
+		"schema:log": "node tsnode-typeorm schema:log",
+		"migration:create": "node tsnode-typeorm migrations:create",
+		"migrations:generate": "node tsnode-typeorm migrations:generate",
+		"migrations:run": "node tsnode-typeorm migrations:run",
+		"migrations:revert": "node tsnode-typeorm migrations:revert"
 	},
 	"lint-staged": {
 		"src/**/*.ts": ["type-check", "git add"]

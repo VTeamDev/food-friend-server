@@ -16,6 +16,11 @@ Server project for Food Friend app
 * Open `http://localhost:8080/graphiql` to test the GraphQL endpoint
 * Install [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en) to modify headers
 
+## Database configs
+
+* Please config your database connection within file `ormconfig.json`
+* Take a look at the docs [here](http://typeorm.io/#/migrations) and the `package.json` file for information about cli commands.
+
 ## Documentation :blue_book:
 
 * Documentation now lives at [https://vteamdev.github.io/food-friend-server/index.html](https://vteamdev.github.io/food-friend-server/index.html) :fire:

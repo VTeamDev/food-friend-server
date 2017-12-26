@@ -10,7 +10,7 @@ import {
 } from "typeorm";
 import { PASSWORD_REGEX } from "../../helpers/constants";
 
-@Entity()
+@Entity("users")
 export class User {
 	@PrimaryGeneratedColumn("uuid") public id: string;
 
@@ -42,6 +42,9 @@ export class User {
 	@CreateDateColumn() public createdAt: Date;
 
 	@UpdateDateColumn() public updatedAt: Date;
+
+	@Column("date", { nullable: true })
+	public dob: Date;
 
 	public async hashPassword(): Promise<void> {
 		const salt = await genSalt(12);
